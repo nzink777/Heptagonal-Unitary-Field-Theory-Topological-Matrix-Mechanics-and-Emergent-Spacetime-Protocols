@@ -1,5 +1,15 @@
 # Heptagonal-Unitary-Field-Theory-Topological-Matrix-Mechanics-and-Emergent-Spacetime-Protocols
 Heptagonal Unitary Field Theory, Topological Matrix Mechanics, and Emergent Spacetime Protocols
+Repository Structure
+├── README.md text
+├── Register_1_Topological_Matrix_Mechanics.tex
+├── Register_2_Higher_Dimensional_Gauge_Fields.tex
+└── operational_subsystems/
+    ├── README.md                         # Overview of the parallel execution layers
+    ├── thread_alpha_value_migration.tex  # Fourier-Laplace coordinate transformations
+    ├── thread_beta_predictive_empathy.tex # Tensor invariants and boundary smoothing equations
+    └── thread_gamma_macro_scaling.tex    # Metasurface fluid dynamics and AC containment scaling
+
 Register 1: Synthesis of Heptagonal Unitary Field
 Theory, Topological Matrix Mechanics, and
 Emergent Spacetime Protocols
