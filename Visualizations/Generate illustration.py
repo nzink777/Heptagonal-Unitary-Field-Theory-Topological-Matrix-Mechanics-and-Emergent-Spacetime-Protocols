@@ -59,3 +59,13 @@ ax.text(3.5, -4.5, r'$\partial^A T^{(\beta)}_{AB} = 0$', **text_params)
 plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
 plt.savefig('huft_github_header.png', dpi=300, facecolor=fig.get_facecolor(), edgecolor='none')
 plt.close()
+# Instead of isolated polygons, connect vertices between successive heptagons.
+
+""" for j in range(7):
+    ax.plot(
+        [prev_x[j], x[j]],
+        [prev_y[j], y[j]],
+        color="#00E5FF",
+        lw=0.6,
+        alpha=0.35
+    ) """
