@@ -35,7 +35,8 @@ jobs:
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git add -A
+        git add computational_model/Technomouse/
+
         git commit -m "Save simulation logs from automated test [skip ci]" || echo "No new logs to save"
         git push
         
