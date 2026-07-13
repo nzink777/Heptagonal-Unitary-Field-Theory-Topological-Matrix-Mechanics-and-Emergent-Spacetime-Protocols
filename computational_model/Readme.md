@@ -1,7 +1,16 @@
-computational model
-Building a computational model for this requires translating pure topology into a discrete, testable matrix pipeline. To simulate the 7D-to-4D projection, the \pi collapse, and the resulting mass generation, we can use Python with numpy and scipy.
-The architecture needs to be modular so you can easily run it through automated testing workflows and cross-reference its outputs with your other topological resonance projects.
-> Visualizing the Drag: The image above demonstrates how a higher-dimensional toroidal manifold deforms as it is constrained into a lower-dimensional embedding. In our computational model, the "friction" of this exact geometric deformation—the energy lost from the extra 3 dimensions—is what we will calculate as the topological drag (rest mass).
+computational model log:
+
+Replace rotation matrix with the specific math that governs the strong nuclear force. 
+This force operates in 3 "color" dimensions (red, green, blue). The geometry of this force is described by 8 specific matrices called the Gell-Mann matrices.
+By feeding these into the 7D phase space, we are asking the simulation: Can this topological geometry naturally produce the strong force?
+
+Computational model requires translating pure topology into a discrete, testable matrix pipeline. 
+To simulate the 7D-to-4D projection, the \pi collapse, and the resulting mass generation, this model uses Python with numpy and scipy.
+The architecture is modular so to easily run it through automated testing workflows and cross-reference its outputs with other topological resonance projects.
+
+> Visualizing the Drag: The image in this folder demonstrates how a higher-dimensional toroidal manifold deforms as it is constrained into a lower-dimensional embedding. In our computational model, the "friction" of this exact geometric deformation—the energy lost from the extra 3 dimensions—is what we will calculate as the topological drag (rest mass).
+>
+> 
  Architectural blueprint and the core Python scaffolding to build this out.
 1. Mathematical Pipeline Architecture
 To maintain logical transparency, the simulation should flow through four distinct phases.
