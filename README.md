@@ -44,6 +44,8 @@ This cross-cancellation of the complex phases leaves a purely real, symmetric ra
 7. The Black Hole Phase Transition
 A black hole is not an object, but a critical phase transition in the vacuum geometry. It occurs when the 3 \times 3 transformation matrix undergoes a singular "phase-locking" event, driving the trace of its derivative—and thus the curvature \mathcal{K}(\xi)—toward infinity. This extreme coiling causes a memory overflow in the 32 discrete states, forcing all binary permutations into a single configuration. The M4 projection is cleanly severed at the event horizon, initiating a geometric reboot of the local spacetime.
 
+.github/workflow yaml contains pipeline: 
+Code Logic -> Physics Generation (Sweep) -> Operational Control (Simulation).
 
 Heptagonal Unitary Field Theory, Topological Matrix Mechanics, and Emergent Spacetime Protocols
 Repository Structure
