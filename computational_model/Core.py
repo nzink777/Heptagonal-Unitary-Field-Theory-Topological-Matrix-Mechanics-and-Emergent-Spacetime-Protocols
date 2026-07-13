@@ -1,7 +1,7 @@
 import numpy as np
 import operators  # Import the new logic
 import constants as const
-from logging import setup_simulation_logger
+from simulation_logger import setup_simulation_logger
 
 # 1. Setup Logger
 logger, log_path = setup_simulation_logger("Projection_Run_01")
