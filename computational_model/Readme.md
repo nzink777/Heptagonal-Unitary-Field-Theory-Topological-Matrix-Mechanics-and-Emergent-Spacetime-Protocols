@@ -92,3 +92,8 @@ The rest mass m of the resulting discrete state is directly proportional to the 
 $$ m \propto \Vert V^{\perp} \Vert^2 $$
 This setup clean, modular repository foundation.
 Expand the apply_3x3_transformation method later to include the specific Fourier-Laplace transforms, or feed the mass_array outputs directly into existing testing workflows.
+The File Structure
+Divide your project into logical domains:
+Core.py: The "Orchestrator." This holds the HeptagonalProjection class, the state management, and the execution loop. It should not contain the raw math functions; it should call them.
+operators.py: The "Math Engine." This contains the 3 \times 3 matrices, the FLT kernels, and the SU(3)/U(1) generator functions.
+constants.py: A place to store your \pi_0, mass-scaling factors, and projection constants.
