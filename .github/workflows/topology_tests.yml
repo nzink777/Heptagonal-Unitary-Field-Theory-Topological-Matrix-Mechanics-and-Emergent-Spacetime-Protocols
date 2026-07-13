@@ -44,6 +44,18 @@ jobs:
 
     - name: Run Autonomous Load Simulation
       run: python computational_model/simulation_loop.py
+
+
+    - name: Run Frequency Sweep
+      run: python tests/test_frequency_sweep.py
+
+    - name: Run Resonance Discovery
+      run: python tests/test_find_resonance.py
+
+    - name: Run Autonomous Load Simulation
+      run: python computational_model/simulation_loop.py
+
+      
     - name: Upload Simulation Artifacts
       uses: actions/upload-artifact@v4
       with:
