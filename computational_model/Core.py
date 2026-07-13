@@ -11,11 +11,34 @@ logger.info(f"Initialized HTFT System. Bulk Dimensions: {const.DIM_BULK}")
 def calculate_drag(velocity):
     return velocity * const.MASS_SCALING_FACTOR
 
-
 class HeptagonalProjection:
     def __init__(self, total_states=288):
+        # 7D complex phase space (N particles x 7 dimensions)
         self.phase_space = np.random.randn(total_states, 7) + 1j * np.random.randn(total_states, 7)
 
+    def apply_su3_interaction(self, gluon_index):
+        """
+        Applies a specific SU(3) strong force interaction to the 7D phase space.
+        gluon_index: integer from 0 to 7 representing which Gell-Mann matrix to apply.
+        """
+        # 1. Fetch the 8 Gell-Mann matrices from your math engine
+        lambdas = operators.get_su3_generators()
+        
+        # 2. Select the specific gluon interaction
+        interaction_matrix = lambdas[gluon_index]
+        
+        # 3. Create a 7x7 Identity matrix (representing no change to the 7D space)
+        T_7x7 = np.eye(7, dtype=complex)
+        
+        # 4. Embed the 3x3 SU(3) matrix into the top-left corner (first 3 dimensions)
+        T_7x7[0:3, 0:3] = interaction_matrix
+        
+        # 5. Apply the transformation to the entire phase space
+        # We use the transpose (T) to align the matrix multiplication correctly
+        self.phase_space = self.phase_space @ T_7x7.T
+        
+
+    
     def apply_advanced_transform(self, s, drift):
         # Access the FLT matrix from the operators file
         T_flt = operators.flt_transformation_matrix(s, drift)
