@@ -76,7 +76,7 @@ class HeptagonalProjection:
         self.phase_space *= coherence
         
         return coherence
-     def apply_condensation_collapse(self, input_signal_hz):
+        def apply_condensation_collapse(self, input_signal_hz):
         """
         Condenses the 7D phase potential into a 4D usable energy output.
         The conversion efficiency is gated by the attunement to 428.5 Hz.
