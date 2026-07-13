@@ -4,6 +4,21 @@ Replace rotation matrix with the specific math that governs the strong nuclear f
 This force operates in 3 "color" dimensions (red, green, blue). The geometry of this force is described by 8 specific matrices called the Gell-Mann matrices.
 By feeding these into the 7D phase space, we are asking the simulation: Can this topological geometry naturally produce the strong force?
 
+When 7D vector is passing through the projection, we now apply one of these 8 matrices (a specific gluon) to the first 3 dimensions of the vector.
+This simulates the particle undergoing a "color charge" interaction while it is still in the higher-dimensional space, before it collapses down to the 4D brane.
+
+Core.py is the orchestrator. 
+We embed that 3 \times 3 color interaction into the 7D universe.
+When a particle in the simulation undergoes a strong force interaction, that interaction only affects its "color" dimensions (the first 3 dimensions of the 7D vector). The other 4 dimensions must remain mathematically untouched during this specific operation.
+Add a new method to your HeptagonalProjection class. This method will fetch the SU(3) generators, pick one (or a combination), and embed it into a 7 \times 7 identity matrix before applying it to the phase space.
+The Mathematical Mechanism
+By using np.eye(7, dtype=complex), we create a blank slate 7 \times 7 matrix composed of 1s on the diagonal and 0s everywhere else. Multiplying any vector by this matrix does absolutely nothing—it preserves the state perfectly.
+When we inject interaction_matrix into T_7x7[0:3, 0:3], we override those first three diagonal slots.
+Now, when your 7D vector [x_1, x_2, x_3, x_4, x_5, x_6, x_7] is multiplied by this matrix:
+x_1, x_2, x_3 get rotated and phase-shifted by the Gell-Mann matrix.
+x_4, x_5, x_6, x_7 are multiplied by 1 and remain exactly as they were.
+This perfectly isolates the strong nuclear force to the subset of dimensions where color charge lives, leaving the 4D spacetime projection dimensions untouched until the condenser collapses them later.
+
 Computational model requires translating pure topology into a discrete, testable matrix pipeline. 
 To simulate the 7D-to-4D projection, the \pi collapse, and the resulting mass generation, this model uses Python with numpy and scipy.
 The architecture is modular so to easily run it through automated testing workflows and cross-reference its outputs with other topological resonance projects.
