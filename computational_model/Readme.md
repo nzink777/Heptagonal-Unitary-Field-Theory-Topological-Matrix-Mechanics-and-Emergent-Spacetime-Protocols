@@ -97,3 +97,6 @@ Divide your project into logical domains:
 Core.py: The "Orchestrator." This holds the HeptagonalProjection class, the state management, and the execution loop. It should not contain the raw math functions; it should call them.
 operators.py: The "Math Engine." This contains the 3 \times 3 matrices, the FLT kernels, and the SU(3)/U(1) generator functions.
 constants.py: A place to store your \pi_0, mass-scaling factors, and projection constants.
+
+logging.py
+This setup utilizes the standard Python logging module but is hard-wired to save simulation runs into Technomouse directory. It is designed to be "performance-aware" and scalable.
