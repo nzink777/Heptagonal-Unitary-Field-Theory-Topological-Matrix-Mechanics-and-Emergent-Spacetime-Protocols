@@ -35,6 +35,9 @@ jobs:
       
     - name: Run Condensation Collapse Test
       run: python tests/test_condensation.py
+
+    - name: Run Frequency Sweep
+      run: python tests/test_frequency_sweep.py
       
     # NEW: Tell the bot to commit the newly generated files and push them
     - name: Save Logs to Repository
