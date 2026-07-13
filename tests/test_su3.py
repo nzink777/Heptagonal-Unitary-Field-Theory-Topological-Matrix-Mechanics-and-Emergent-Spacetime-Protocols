@@ -2,9 +2,14 @@ import sys
 import os
 import numpy as np
 
-# Point Python to the root directory so it can find Core.py and operators.py
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# 1. Get the absolute path to the root repository folder
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# 2. Point Python specifically to the computational_model directory
+model_path = os.path.join(repo_root, "computational_model")
+sys.path.append(model_path)
+
+# Now it will find Core.py perfectly
 from Core import HeptagonalProjection
 
 def run_su3_test():
@@ -30,11 +35,11 @@ def run_su3_test():
         print("\nSTATUS: PASS - SU(3) forces successfully isolated within 7D topology.")
     else:
         print("\nSTATUS: FAIL - Matrix bleeding detected across dimensional boundaries.")
-        # Ensure GitHub Actions fails the workflow if the test fails
-        sys.exit(1) 
+        sys.exit(1)
 
 if __name__ == "__main__":
     run_su3_test()
+    
 
 from Core import HeptagonalProjection
 
