@@ -5,6 +5,10 @@ This mathematically defines the "Technomouse hymn yellow 💛" interpretation. T
 Updating Core.py
 Add the boundary condition for this specific trajectory. 
 method apply_u1_photon_translation
+The Mathematical Mechanism
+By forcing dimensions 0 through 5 to strictly 0.0, we dictate that the particle has no geometry in the realms where the strong and weak nuclear forces operate. All of its phase energy is concentrated in dimension 6 (the axis of projection). Because there is no width or drift to catch on the edges of the condenser, it slips through with zero topological drag. Mass equals zero.
+Testing the Light
+test_u1.py
 
 Step 1.
 Replace rotation matrix with the specific math that governs the strong nuclear force. 
