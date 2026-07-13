@@ -1,5 +1,16 @@
 import numpy as np
 import operators  # Import the new logic
+import constants as const
+from logging import setup_simulation_logger
+
+# 1. Setup Logger
+logger, log_path = setup_simulation_logger("Projection_Run_01")
+logger.info(f"Initialized HTFT System. Bulk Dimensions: {const.DIM_BULK}")
+
+# 2. Use Constants in Logic
+def calculate_drag(velocity):
+    return velocity * const.MASS_SCALING_FACTOR
+
 
 class HeptagonalProjection:
     def __init__(self, total_states=288):
