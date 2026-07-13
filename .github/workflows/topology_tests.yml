@@ -3,7 +3,11 @@ name: Heptagonal Topology Tests
 on:
   push:
     branches: [ "main", "master" ]
-  workflow_dispatch: # Allows you to trigger it manually from your phone
+  workflow_dispatch:
+
+# NEW: We must give the GitHub Action permission to push files back to the repo
+permissions:
+  contents: write
 
 jobs:
   test:
@@ -25,4 +29,13 @@ jobs:
 
     - name: Run SU(3) Matrix Isolation Test
       run: python tests/test_su3.py
-      
+
+    # NEW: Tell the bot to commit the newly generated files and push them
+    - name: Save Logs to Repository
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -m "Save simulation logs from automated test [skip ci]" || echo "No new logs to save"
+        git push
+        
