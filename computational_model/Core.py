@@ -78,19 +78,18 @@ class HeptagonalProjection:
         return coherence
         
     def apply_condensation_collapse(self, input_signal_hz):
-        # Condenses the 7D phase potential into a 4D usable energy output.
-        # The conversion efficiency is gated by the attunement to 428.5 Hz.
+        """
+        Condenses the 7D phase potential into a 4D usable energy output.
+        The conversion efficiency is gated by the attunement to 428.5 Hz.
+        """
         # 1. First, gate the simulation by the resonance frequency
-        # This simulates the 'tuning fork' effect of the condenser
-         coherence = self.apply_attunement_filter(input_signal_hz)
+        coherence = self.apply_attunement_filter(input_signal_hz)
         
         # 2. Extract the magnitude from the 4D spacetime dimensions (3, 4, 5, 6)
-        # We ignore 0, 1, 2 (the SU(3) color/internal dimensions) as they don't 'collapse' to M4
         m4_potential = np.sum(np.abs(self.phase_space[:, 3:7])**2)
         
         # 3. Collapse the potential into usable energy density
         usable_energy = m4_potential * coherence
         
         return usable_energy
-
-
+        
