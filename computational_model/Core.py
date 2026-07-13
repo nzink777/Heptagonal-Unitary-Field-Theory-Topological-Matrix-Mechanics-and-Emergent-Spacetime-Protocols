@@ -62,3 +62,18 @@ class HeptagonalProjection:
         
         self.phase_space = self.phase_space @ T_7x7.T
         
+    def apply_attunement_filter(self, input_signal_hz):
+        """
+        Calculates the coherence of the 7D->4D projection based on the 
+        resonance of the 428.5 Hz condenser.
+        """
+        target_hz = 428.5
+        # Calculate the 'Q-factor' or sharpness of the attunement
+        # A result close to 1.0 means perfect attunement.
+        coherence = np.exp(-abs(input_signal_hz - target_hz) / target_hz)
+        
+        # Apply the coherence factor to the projection stability
+        self.phase_space *= coherence
+        
+        return coherence
+        
