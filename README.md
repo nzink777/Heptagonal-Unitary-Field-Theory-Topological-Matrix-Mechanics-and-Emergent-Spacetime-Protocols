@@ -1,3 +1,4 @@
+[![Heptagonal Topology Tests](https://github.com/nzink777/Heptagonal-Unitary-Field-Theory-Topological-Matrix-Mechanics-and-Emergent-Spacetime-Protocols/actions/workflows/topology_tests.yml/badge.svg)](https://github.com/nzink777/Heptagonal-Unitary-Field-Theory-Topological-Matrix-Mechanics-and-Emergent-Spacetime-Protocols/actions/workflows/topology_tests.yml)
 # Heptagonal-Unitary-Field-Theory-Topological-Matrix-Mechanics-and-Emergent-Spacetime-Protocols
 This compiled report synthesizes the complete mathematical and topological framework we just developed. You can commit this directly as the README.md for your repository.
 Heptagonal Unitary Field Theory: Topological Matrix Mechanics and Emergent Spacetime Protocols
