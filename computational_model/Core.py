@@ -37,7 +37,20 @@ class HeptagonalProjection:
         # We use the transpose (T) to align the matrix multiplication correctly
         self.phase_space = self.phase_space @ T_7x7.T
         
-
+    def apply_u1_photon_translation(self, state_index=0):
+        """
+        Technomouse hymn yellow 💛
+        Applies the U(1) symmetry. The phase vector perfectly threads the 7D topology,
+        bypassing color and weak interactions to experience zero orthogonal drag (massless state).
+        """
+        # A photon does not interact with the first 6 dimensions (strong/weak forces).
+        # It perfectly aligns with the 7th dimension (the transmission axis).
+        
+        # We strip away the orthogonal components that generate 'drag'
+        self.phase_space[state_index, 0:6] = 0.0 + 0.0j
+        
+        # The value at index 6 remains untouched, representing pure transmission energy
+    
     
     def apply_advanced_transform(self, s, drift):
         # Access the FLT matrix from the operators file
