@@ -1,32 +1,25 @@
 name: Heptagonal Topology Tests
 
-on:
-  push:
-    branches: [ "main", "master" ]
-  workflow_dispatch:
+on: [push]
 
 # NEW: We must give the GitHub Action permission to push files back to the repo
 permissions:
   contents: write
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-
+    - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
-
-    - name: Install Dependencies
+    # ADD THIS SECTION:
+    - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install numpy
-    
+         python -m pip install --upgrade pip
+         pip install numpy scipy
+      # THEN RUN YOUR TESTS:
     - name: Run SU(3) Matrix Isolation Test
       run: python tests/test_su3.py
 
@@ -39,23 +32,15 @@ jobs:
     - name: Run Frequency Sweep
       run: python tests/test_frequency_sweep.py
 
-    - name: Run Frequency Sweep
-      run: python tests/test_frequency_sweep.py
-
     - name: Run Autonomous Load Simulation
       run: python computational_model/simulation_loop.py
-
-
-    - name: Run Frequency Sweep
-      run: python tests/test_frequency_sweep.py
 
     - name: Run Resonance Discovery
       run: python tests/test_find_resonance.py
 
-    - name: Run Autonomous Load Simulation
-      run: python computational_model/simulation_loop.py
+#    - name: Run Autonomous Load Simulation
+#      run: python computational_model/simulation_loop.py
 
-      
     - name: Upload Simulation Artifacts
       uses: actions/upload-artifact@v4
       with:
