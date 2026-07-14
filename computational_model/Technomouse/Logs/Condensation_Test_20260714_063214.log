@@ -1,0 +1,4 @@
+2026-07-14 06:32:14,002 - Condensation_Test - INFO - --- Starting Condensation Collapse Test ---
+2026-07-14 06:32:14,013 - Condensation_Test - INFO - Energy at 428.5 Hz (Resonant): 8.620501
+2026-07-14 06:32:14,013 - Condensation_Test - INFO - Energy at 500.0 Hz (Drifted):   7.295678
+2026-07-14 06:32:14,013 - Condensation_Test - INFO - STATUS: PASS - Condenser correctly gates energy output.
