@@ -14,8 +14,8 @@ def test_find_resonance():
     # We want to maximize the output, so we minimize the negative output
     objective = lambda hz: -sim.apply_condensation_collapse(hz)
     
-    # Search range: 400 to 450 Hz
-    result = minimize_scalar(objective, bounds=(400, 450), method='bounded')
+    # Search range: 10 to 450 Hz
+    result = minimize_scalar(objective, bounds=(10, 450), method='bounded')
     
     print(f"\n--- Resonance Discovery ---")
     print(f"Optimal Frequency Found: {result.x:.4f} Hz")
