@@ -62,7 +62,7 @@ class HeptagonalProjection:
         
         self.phase_space = self.phase_space @ T_7x7.T
         
-        def apply_attunement_filter(self, input_signal_hz):
+    def apply_attunement_filter(self, input_signal_hz):
         """
         Calculates the coherence of the 7D->4D projection based on the 
         resonance of the 428.5 Hz condenser.
