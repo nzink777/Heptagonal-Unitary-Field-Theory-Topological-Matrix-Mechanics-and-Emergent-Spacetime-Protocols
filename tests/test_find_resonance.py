@@ -13,13 +13,12 @@ def debug_potential(sim):
     print(f"DEBUG: Raw M4 Potential before collapse: {raw_potential}")
 
 def test_find_resonance():
-    sim = HeptagonalProjection(total_states=288)
-    debug_potential(sim) # Add this check!
+    # Define the objective to create a NEW simulation each time
+    def objective(hz):
+        sim = HeptagonalProjection(total_states=288) # Fresh instance per trial
+        return -sim.apply_condensation_collapse(hz)
     
-    # We want to maximize the output, so we minimize the negative output
-    objective = lambda hz: -sim.apply_condensation_collapse(hz)
-    
-    # Search range: 10 to 500 MHz
+    # Search range
     result = minimize_scalar(objective, bounds=(10, 5000000000), method='bounded')
     
     print(f"\n--- Resonance Discovery ---")
