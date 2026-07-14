@@ -7,9 +7,14 @@ from scipy.optimize import minimize_scalar
 repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.join(repo_root, "computational_model"))
 from Core import HeptagonalProjection
+def debug_potential(sim):
+    # Check the raw sum before coherence is applied
+    raw_potential = np.sum(np.abs(sim.phase_space[:, 3:7])**2)
+    print(f"DEBUG: Raw M4 Potential before collapse: {raw_potential}")
 
 def test_find_resonance():
-    sim = HeptagonalProjection(total_states=1)
+    sim = HeptagonalProjection(total_states=288)
+    debug_potential(sim) # Add this check!
     
     # We want to maximize the output, so we minimize the negative output
     objective = lambda hz: -sim.apply_condensation_collapse(hz)
