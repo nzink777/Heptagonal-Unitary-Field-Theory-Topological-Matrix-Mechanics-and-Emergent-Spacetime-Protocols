@@ -62,18 +62,16 @@ class HeptagonalProjection:
         
         self.phase_space = self.phase_space @ T_7x7.T
         
-    def apply_attunement_filter(self, input_signal_hz):
+        def apply_attunement_filter(self, input_signal_hz):
         """
         Calculates the coherence of the 7D->4D projection based on the 
         resonance of the 428.5 Hz condenser.
         """
         target_hz = 428.5
-        # Calculate the 'Q-factor' or sharpness of the attunement
-        # A result close to 1.0 means perfect attunement.
         coherence = np.exp(-abs(input_signal_hz - target_hz) / target_hz)
         
-        # Apply the coherence factor to the projection stability
-        self.phase_space *= coherence
+        # REMOVE this line to prevent data decay during sweeps:
+        # self.phase_space *= coherence 
         
         return coherence
         
@@ -82,14 +80,13 @@ class HeptagonalProjection:
         Condenses the 7D phase potential into a 4D usable energy output.
         The conversion efficiency is gated by the attunement to 428.5 Hz.
         """
-        # 1. First, gate the simulation by the resonance frequency
         coherence = self.apply_attunement_filter(input_signal_hz)
         
-        # 2. Extract the magnitude from the 4D spacetime dimensions (3, 4, 5, 6)
+        # Extract the true unmutated magnitude from the 4D spacetime dimensions
         m4_potential = np.sum(np.abs(self.phase_space[:, 3:7])**2)
         
-        # 3. Collapse the potential into usable energy density
+        # Apply the gating coefficient to the output, leaving the bulk intact
         usable_energy = m4_potential * coherence
         
         return usable_energy
-        
+
